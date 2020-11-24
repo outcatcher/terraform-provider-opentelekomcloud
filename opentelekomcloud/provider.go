@@ -343,6 +343,7 @@ func Provider() terraform.ResourceProvider {
 			"opentelekomcloud_smn_topic_v2":                       resourceTopic(),
 			"opentelekomcloud_smn_subscription_v2":                resourceSubscription(),
 			"opentelekomcloud_vpc_eip_v1":                         resourceVpcEIPV1(),
+			"opentelekomcloud_vpc_bandwidth":                      resourceVpcBandWidthV2(),
 			"opentelekomcloud_vpc_v1":                             resourceVirtualPrivateCloudV1(),
 			"opentelekomcloud_vpc_peering_connection_v2":          resourceVpcPeeringConnectionV2(),
 			"opentelekomcloud_vpc_peering_connection_accepter_v2": resourceVpcPeeringConnectionAccepterV2(),
