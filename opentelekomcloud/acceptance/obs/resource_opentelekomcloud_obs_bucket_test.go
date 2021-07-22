@@ -44,7 +44,7 @@ func TestAccObsBucket_basic(t *testing.T) {
 				Config: testAccObsBucketSSE(rInt),
 				Check: resource.ComposeTestCheckFunc(testAccCheckObsBucketExists(resourceName),
 					resource.TestCheckResourceAttr(resourceName, "server_side_encryption.0.kms_key_id", env.OS_KMS_ID),
-					resource.TestCheckResourceAttr(resourceName, "server_side_encryption.0.algorithm", "aws:kms"),
+					resource.TestCheckResourceAttr(resourceName, "server_side_encryption.0.algorithm", "kms"),
 				),
 			},
 		},
@@ -306,7 +306,7 @@ resource "opentelekomcloud_obs_bucket" "bucket" {
   acl           = "public-read"
 
   server_side_encryption {
-    algorithm  = "aws:kms"
+    algorithm  = "kms"
     kms_key_id = "%s"
   }
 }

@@ -630,7 +630,10 @@ func (c *Config) NewObjectStorageClient(region string) (*obs.ObsClient, error) {
 
 	setUpOBSLogging()
 
-	return obs.New(cred.AccessKey, cred.SecretKey, client.Endpoint, obs.WithSecurityToken(cred.SecurityToken))
+	return obs.New(
+		cred.AccessKey, cred.SecretKey, client.Endpoint,
+		obs.WithSecurityToken(cred.SecurityToken), obs.WithSignature(obs.SignatureObs),
+	)
 }
 
 func (c *Config) blockStorageV1Client(region string) (*golangsdk.ServiceClient, error) {
